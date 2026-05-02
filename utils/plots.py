@@ -32,11 +32,12 @@ except Exception:
         if x.size == 0:
             return x
         # Approximate gaussian-like smoothing by a centered moving average.
-        k = max(int(round(sigma * 2)) * 2 + 1, 3)  # odd kernel size
+        k = max(round(sigma * 2) * 2 + 1, 3)  # odd kernel size
         w = np.ones(k, dtype=float) / k
         pad = k // 2
         xp = np.pad(x, (pad, pad), mode="edge")
         return np.convolve(xp, w, mode="valid")
+
 
 # Settings
 RANK = int(os.getenv("RANK", -1))
