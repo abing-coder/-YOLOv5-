@@ -26,10 +26,10 @@ if platform.system() != "Windows":
     ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
 from models.common import (
-    CBAM,
     C3,
     C3SPP,
     C3TR,
+    CBAM,
     SPP,
     SPPF,
     Bottleneck,

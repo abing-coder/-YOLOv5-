@@ -11,7 +11,6 @@ import shutil
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-
 DEFAULT_CLASSES = [
     "crazing",
     "inclusion",
