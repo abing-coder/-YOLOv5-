@@ -347,7 +347,9 @@ class ChannelAttention(nn.Module):
         hidden = max(channels // ratio, 1)
         self.avg_pool = nn.AdaptiveAvgPool2d(1)
         self.max_pool = nn.AdaptiveMaxPool2d(1)
-        self.mlp = nn.Sequential(nn.Conv2d(channels, hidden, 1, bias=False), nn.ReLU(), nn.Conv2d(hidden, channels, 1, bias=False))
+        self.mlp = nn.Sequential(
+            nn.Conv2d(channels, hidden, 1, bias=False), nn.ReLU(), nn.Conv2d(hidden, channels, 1, bias=False)
+        )
         self.act = nn.Sigmoid()
 
     def forward(self, x):
