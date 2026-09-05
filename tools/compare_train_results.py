@@ -1,4 +1,4 @@
-"""Compare YOLOv5 training runs and plot metric curves (English labels).
+r"""Compare YOLOv5 training runs and plot metric curves (English labels).
 
 Two modes:
   (A) Legacy — two curves:
@@ -49,7 +49,7 @@ def parse_series_entry(entry: str) -> tuple[str, Path]:
     label, path = entry.split(":", 1)
     label, path = label.strip(), path.strip()
     if not label or not path:
-        raise ValueError(f'Invalid --series entry: {entry}')
+        raise ValueError(f"Invalid --series entry: {entry}")
     return label, Path(path)
 
 
@@ -133,9 +133,7 @@ def main():
                 m5095 = last[cols["metrics/mAP_0.5:0.95"]]
                 p = last[cols["metrics/precision"]]
                 r = last[cols["metrics/recall"]]
-                print(
-                    f"  {label}: epoch={int(ep)}  P={p:.4f} R={r:.4f}  mAP50={m50:.4f}  mAP50-95={m5095:.4f}"
-                )
+                print(f"  {label}: epoch={int(ep)}  P={p:.4f} R={r:.4f}  mAP50={m50:.4f}  mAP50-95={m5095:.4f}")
             except Exception as ex:
                 print(f"  {label}: (summary failed) {ex}")
 
